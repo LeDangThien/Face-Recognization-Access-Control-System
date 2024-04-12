@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        .tieude {
+            color: rgb(13, 0, 255);
+            text-align: center;
+            background-color: rgb(240, 240, 255);
+            border-radius: 25px;
+            padding: 10px; /* Add padding for better visual appearance */
+        }
+    </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.1.3/socket.io.js"></script>
+</head>
+
+<body>
+
+    <h1 class="tieude">In/Out System</h1>
+    <form action="/page0">
+        <input type="submit" value="Sign Up">
+        <h2> User's Information </h2>
+        <span id="peopleID"></span>
+
+        <script>
+          var socket = io.connect('http://' + document.domain + ':' + location.port);
+
+          socket.on('faceRegCheck_update', function (msg) {
+              console.log('Received update for faceRegCheck:', msg.peopleID);
+              updateContent(msg.peopleID);
+          });
+
+          function updateContent(peopleID) {
+              // Update specific elements on the page based on faceRegCheck and personCheck values
+              var contentDiv = document.getElementById('peopleID');
+              contentDiv.innerHTML = '';  // Clear existing content
+
+              if (peopleID["Age"]==-2) {
+                  contentDiv.innerHTML += '<h2> There are more than 1 person in front of the screen </h2>';
+              } else if (peopleID["Age"]>=0) {
+                  // Update content for faceRegCheck == 1
+                  contentDiv.innerHTML += '<p> <span style="font-size: 18px">' + "Full name: " + peopleID["Full name"] + '</span> </p>';
+                  contentDiv.innerHTML += '<p> <span style="font-size: 18px">' + "Age: " + peopleID["Age"] + '</span> </p>';
+                  contentDiv.innerHTML += '<p> <span style="font-size: 18px">' + "Phone Number: " + peopleID["Phone number"] + '</span> </p>';
+                  contentDiv.innerHTML += '</form>';
+              } else{
+              } 
+          }
+      </script>
+
+</body>
+
+<body>
+	<div class="container-fluid" id="main">	
+		<div class="row row-offcanvas row-offcanvas-left">   
+			<div class="col-md-9 col-lg-10 main"> 
+				<br>
+				<h3>Camera</h3>
+								
+				<div class="mx-auto" style="width: 700px;">
+				  <img src="{{ url_for('video') }}">
+				</div>
+
+			</div>
+		</div>
+	</div>
+</body>
+
+
+</html>

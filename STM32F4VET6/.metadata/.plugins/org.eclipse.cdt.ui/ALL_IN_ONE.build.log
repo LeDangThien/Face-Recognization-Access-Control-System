@@ -1,0 +1,16 @@
+21:02:33 **** Build of configuration Debug for project ALL_IN_ONE ****
+make -j12 all 
+arm-none-eabi-gcc -o "ALL_IN_ONE.elf" @"objects.list"   -mcpu=cortex-m4 -T"D:\Courses_TH\Nam_3\TH_HK_1\Thiet_ke_he_thong_nhung\Do_An_Gui_Xe\STM32F411VET6\ALL_IN_ONE\ALL_IN_ONE\STM32F411VETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="ALL_IN_ONE.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: ALL_IN_ONE.elf
+ 
+arm-none-eabi-size   ALL_IN_ONE.elf 
+arm-none-eabi-objdump -h -S  ALL_IN_ONE.elf  > "ALL_IN_ONE.list"
+   text	   data	    bss	    dec	    hex	filename
+  35460	    276	   8972	  44708	   aea4	ALL_IN_ONE.elf
+Finished building: default.size.stdout
+ 
+Finished building: ALL_IN_ONE.list
+ 
+
+21:02:35 Build Finished. 0 errors, 0 warnings. (took 2s.410ms)
+

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        .tieude {
+            color: rgb(13, 0, 255);
+            text-align: center;
+            background-color: rgb(240, 240, 255);
+            border-radius: 25px;
+            padding: 10px; /* Add padding for better visual appearance */
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1 class="tieude">In/Out System</h1>
+    <form action="/page0">
+        <input type="submit" value="Sign Up">
+        <h2> User's Information </h2>
+        {% block content %}{% endblock %}
+
+</body>
+
+<body>
+	<div class="container-fluid" id="main">	
+		<div class="row row-offcanvas row-offcanvas-left">   
+			<div class="col-md-9 col-lg-10 main"> 
+				<br>
+				<h3>Camera</h3>
+								
+				<div class="mx-auto" style="width: 700px;">
+				  <img src="{{ url_for('auth.video') }}">
+				</div>
+
+			</div>
+		</div>
+	</div>
+</body>
+
+</html>
